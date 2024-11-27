@@ -125,7 +125,10 @@ class App:
 
     def get_countries(self):
         cmd = "nordvpn countries"
-        return self.run_command(cmd).split()
+        countries = self.run_command(cmd).split()
+        countries.remove("United_States")
+        countries.insert(0, "United_States")
+        return countries
 
     def get_cities(self, country):
         cmd = f"nordvpn cities {country}"
