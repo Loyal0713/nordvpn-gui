@@ -1,51 +1,54 @@
 # NordVPN GUI
 
-A simple GUI application for managing NordVPN connections using `tkinter`. This application is specifically aimed at Ubuntu/Linux users where there's no official GUI port for NordVPN.
+[![Python 3.x](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/downloads/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 
-## Features
+A simple GUI wrapper for the NordVPN Linux CLI.
 
-- Connect to NordVPN servers by selecting a country and city.
-- Disconnect from NordVPN.
-- View current connection status, including server, hostname, IP, country, and city.
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [License](#license)
 
 ## Requirements
 
 - Python 3.x
-- `tkinter` library (usually included with Python)
+- tkinter
 - NordVPN CLI
 
 ## Installation
 
-1. Ensure you have Python 3.x installed on your system.
-2. Install the NordVPN CLI by following the instructions on the [NordVPN website](https://nordvpn.com/download/linux/).
-3. Clone this repository or download the `app.py` file.
+1. Install Python 3.x
+2. Install tkinter
+3. Install NordVPN CLI by following the instructions [here](https://nordvpn.com/download/linux/)
+4. Clone this repository
 
 ## Usage
 
-1. Open a terminal and navigate to the directory containing `app.py`.
-2. Run the script using Python:
+1. Make the script executable:
 
-    ```sh
-    python3 app.py
-    ```
+```bash
+chmod +x app.py
+```
 
-3. The GUI application will open. Use the dropdown menus to select a country and city, then click "Connect" to connect to a NordVPN server. Click "Disconnect" to disconnect from the VPN.
-4. Leaving either country or city will let NordVPN pick the recommended country/city.
+2. Run the script using terminal or right-click and select "Run as a Program"
+3. If not authenticated, login using the "Login" button
+   1. This will open a pop up to open a browser to authenticate
+4. Due to how the NordVPN CLI works, you'll need to close and reopen the GUI after connecting/disconnecting
+5. Use the "Connect" and "Disconnect" buttons to connect and disconnect from the VPN
+   1. Leaving the "Country" field blank will connect to the fastest server available
+   2. Leaving the "City" field blank will connect to the fastest server available in the selected country
 
-As a wrapper, the GUI application will run the NordVPN CLI commands in the background to connect and disconnect from servers.
+## Features
 
-## GUI Overview
-
-- **Country Dropdown**: Select the country to connect to.
-- **City Dropdown**: Select the city to connect to (populated based on the selected country).
-- **Connect Button**: Connect to the selected NordVPN server.
-- **Disconnect Button**: Disconnect from the current NordVPN server.
-- **Status Panel**: Displays the current connection status, including server, hostname, IP, country, and city.
-
-## Note
-
-This application is untested on Windows and is specifically aimed at Ubuntu/Linux users (no official GUI port).
+- Country and city selection
+- Quick connect to the fastest server (leave the "Country" and "City" fields blank)
+- Login and logout
+- Status display
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE](LICENSE) file for details.
